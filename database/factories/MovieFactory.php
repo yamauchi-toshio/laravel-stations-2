@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Genre;
 use Illuminate\Database\Eloquent\Factories\Factory;
+
 
 class MovieFactory extends Factory
 {
@@ -14,11 +16,15 @@ class MovieFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->unique()->word,
-            'image_url' => $this->faker->imageUrl(),
-            'published_year' => $this->faker->year,
-            'description' => $this->faker->realText(20),
-            'is_showing' => $this->faker->boolean,
+            'title' => $this->faker->realText(10),
+            'image_url' => 'https://techbowl.co.jp/_nuxt/img/6074f79.png',
+            'published_year' => 2023,
+            'is_showing' => false,
+            'description' => 'おもしろい',
+            'genre_id' => function() 
+                            { 
+                                   return Genre::factory()->create()->id;                
+                            },
         ];
     }
 }

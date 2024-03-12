@@ -1,0 +1,23 @@
+
+直前のマイグレーションをロールバック：$ php artisan migrate:rollback
+マイグレーションをすべてロールバック：$ php artisan migrate:reset
+マイグレーションをすべてロールバックし、全マイグレーション：$ php artisan migrate:refresh
+すべてのテーブルをドロップ（削除）してから再びマイグレーション：fresh
+マイグレーションの状態を確認：status
+
+//------------------------------------------------------------------------------------------//
+
+<マイグレーションファイルの作成>
+docker compose exec php-container php artisan make:migration create_xxxxx_table
+→database/migrations配下
+
+<マイグレーション実行>
+docker compose exec php-container php artisan migrate
+
+<Modelファイル作成>
+docker compose exec php-container php artisan make:model xxxxx
+→App/
+
+web.php、PracticeController作成
+<データを生成>
+docker compose exec php-container php artisan make:factory xxxxx
